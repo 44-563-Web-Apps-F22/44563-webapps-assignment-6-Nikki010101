@@ -15,7 +15,11 @@
     <input type="button" onclick="checkGuess()" value="Check the guess">
 </form>
 <p id="resultM">Result is here</p>
+<div class="container">
+    <img src="angel insect.jpg" width="100px" height="100px" alt="angel insect" id="images"onclick="swapImage()">
+</div>
 <script>
+    useImage=1;
     var correct=0;
     var wrong=0;
     function checkGuess(){
@@ -34,6 +38,22 @@
         }
         document.getElementById("resultM").innerHTML="correct "+correct+"  wrong "+wrong;
     }
+    function swapImage(){
+    switch(useImage){
+            case 1:
+            document.getElementById("images").src="angel insect.jpg";
+            useImage+=1;
+            break;
+            case 2:
+            document.getElementById("images").src="Khapra beetle.jpg";
+            useImage+=1;
+            break;
+            case 3:
+            document.getElementById("images").src="Sawflies.jpg";
+            useImage+=1;
+            break;
+    }
+}
 </script>
 
 

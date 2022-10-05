@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <title>Discount html</title>
+<body>
+
+<h2>Nikhitha Kasuvojula computes discounts</h2>
+
+<form>
+<label for="amount" >Enter base amount</label>
+<input id="amount" type="number" value="20" > <br>
+
+<label for="discount">Enter the discount percentage</label>
+<input id="discount" type="number" value="10"> <br>
+
+<input type="button" onclick="discount()" value="Apply Discount">
+</form>
+
+<p id="result">This text will be replaced </p>
+<div class="container">
+    <form>
+        <div class="container">
+        <label for="multiply">*  </label>
+        <input type="radio" id="mutiply" name="multiply" value="times" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="divide">/  </label>
+        <input type="radio" id="divide" name="divide" value="divide" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="exponent">**</label>
+        <input type="radio" id="exponent" name="exponent" value="exponent" onclick="chooseOp()">
+        </div>
+        
+    </form>
+    <p id="result1">This will display operation results </p><br>
+</div>
+<script> 
+function chooseOp(){
+    amount = document.getElementById("amount").value
+    dis = document.getElementById("discount").value
+    multiply=document.getElementById("mutiply").checked
+    divide=document.getElementById("divide").checked
+    exponent=document.getElementById("exponent").checked
+            if(multiply){
+                  document.getElementById("result1").innerHTML="Amount*discount="+amount*dis
+            }
+            else if(divide){
+                
+                  document.getElementById("result1").innerHTML="Amount/discount"+amount/dis
+            }
+            else if(exponent){
+                  document.getElementById("result1").innerHTML="Amount**discount"+amount**dis
+            }
+}
+function discount (){
+    console.log("Getting form values")
+    amount = document.getElementById("amount").value
+    dis = document.getElementById("discount").value
+    var i=0;
+    let values=""
+    for(i=0;i<5;i++){
+        values+=(amount*i)-(amount*i*dis/100)
+        values+=" "
+    }document.getElementById("result").innerHTML="Discounted amounts for base "+amount+" are "+result
+}
+</script>
+
+
+</body>
+</html> 
