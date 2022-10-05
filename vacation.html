@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html>
- 
+ <title>vacation html</title>
 <body>
 
-<h2>Getting input</h2>
+<h2>Nikhitha Kasuvojula selects a vacation</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="travel">Travel by Air </label>
+    <input type ="checkbox" id="travel" name="travel" value="True"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="Domestic">Domestic </label>
+    <input type ="checkbox" id="Domestic" name="Domestic" value="True"> <br>
+    <label for="Resort"> Resort</label>
+    <input type ="checkbox" id="Resort" name="Resort" value="False"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="selectVacation()" value="Select a vacation">
+</form><p id="result">This text will be replaced </p>
+<form>
+    <div class="form-group">
+        <label for="city">Enter a city</label>
+        <input type="text" class="form-control" id="city" name="city" value="city"> <br>
+    </div>
+    <div class="form-group">
+        <label for="city">Enter price</label>
+        <input type="text" class="form-control" id="price" name="price"> <br>
+    </div>
+    <input type="button" class="btn btn-warning" value="Update the vacation" onclick="updateVacation()">
 </form>
+<p id="results2">This text will be replaced </p>
 
 
-<p id="result">This text will be replaced </p>
 
 <script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+var my_vacation=" "
+function selectVacation(){
+    var my_vacation = {}
+    travel = document.getElementById("travel").value
+    Domestic = document.getElementById("Domestic").value
+    Resort = document.getElementById("Resort").value
+    res=document.getElementById("result")
+    if(document.getElementById("travel").checked){
+        my_vacation.travel=true
+      }
+    else{
+        my_vacation.travel=false
     }
+    if(document.getElementById("Domestic").checked){
+        my_vacation.Domestic=true        
+      }
+    else{
+        my_vacation.Domestic=false
+    }
+    if(document.getElementById("Resort").checked){
+        my_vacation.Resort=true
+      }
+    else{
+        my_vacation.Resort=false
+    }
+    res.innerHTML=JSON.stringify(my_vacation)   
+
 }
+function updateVacation()
+        {
+            let city=document.getElementById("city").value;
+            let price=document.getElementById("price").value;
+            my_vacation["city"]=city;
+            my_vacation["price"]=price;
+        
+            document.getElementById("results2").innerHTML=JSON.stringify(my_vacation)
+        }
 </script>
 
 </body>
