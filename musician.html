@@ -2,6 +2,19 @@
 <html>
  <head>
     <title>Guessing of Musicians</title>
+    <style>
+        body {
+          background-color: rgb(123, 191, 117);
+        }
+        input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}</style>
  </head>
 <body>
 
@@ -9,10 +22,10 @@
 
 <form>
     <label for="form2_secret">Enter the secret musician name</label>
-    <input id="form2_secret" name="form2_secret" type="password" min=10 max=50 step=2 value="John Lennon">
-    <label for="form2_check">Guess the musician</label>
+    <input id="form2_secret" name="form2_secret" type="password" min=10 max=50 step=2 value="John Lennon"><br>
+    <label for="form2_check">Guess the musician</label><br>
     <input id="form2_check" name="form2_check" type="text" autofocus>
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" class="btn btn-danger btn-primary" onclick="checkGuess()" value="Check the guess">
 </form>
 <p id="resultM">Result is here</p>
 <div class="container">
@@ -22,21 +35,29 @@
     useImage=1;
     var correct=0;
     var wrong=0;
+    var count=0;
     function checkGuess(){
         console.log("Getting form values")
         musician = document.getElementById("form2_secret").value
         input=document.getElementById("form2_check").value
         if(musician==input){
             correct=correct+1;
-        
+            count=0;
             alert("You got it right");
         }
         else{
             wrong=wrong+1;
-        
+            count=count+1;
             alert("Wrong Musician");
+            if(count>=3){
+            if(wrong>=3){
+             gameover()}}
         }
         document.getElementById("resultM").innerHTML="correct "+correct+"  wrong "+wrong;
+       
+    }
+    function gameover(){
+        alert("Sorry,game over")
     }
     function swapImage(){
     switch(useImage){

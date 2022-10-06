@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
  <title>vacation html</title>
+ <style>
+    body {
+      background-color: rgb(132, 186, 224);
+    }
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}</style>
 <body>
 
 <h2>Nikhitha Kasuvojula selects a vacation</h2>
@@ -9,9 +22,9 @@
     <label for="travel">Travel by Air </label>
     <input type ="checkbox" id="travel" name="travel" value="True"> <br>
 
-    <label for="Domestic">Domestic </label>
+    <label class="btn btn-outline-primary" for="Domestic">Domestic </label>
     <input type ="checkbox" id="Domestic" name="Domestic" value="True"> <br>
-    <label for="Resort"> Resort</label>
+    <label class="btn btn-outline-primary" for="Resort"> Resort</label>
     <input type ="checkbox" id="Resort" name="Resort" value="False"> <br>
 
     <input type="button" onclick="selectVacation()" value="Select a vacation">
